@@ -1,12 +1,12 @@
 <?php
 
-namespace Mnabialek\LaravelSqlLogger\Tests;
+namespace Ttakahashi2013\LaravelSqlLogger\Tests;
 
 use Illuminate\Container\Container;
 use Illuminate\Database\DatabaseManager;
-use Mnabialek\LaravelSqlLogger\Config;
-use Mnabialek\LaravelSqlLogger\Providers\ServiceProvider;
-use Mnabialek\LaravelSqlLogger\SqlLogger;
+use Ttakahashi2013\LaravelSqlLogger\Config;
+use Ttakahashi2013\LaravelSqlLogger\Providers\ServiceProvider;
+use Ttakahashi2013\LaravelSqlLogger\SqlLogger;
 use Mockery;
 
 class ServiceProviderTest extends UnitTestCase

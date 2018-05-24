@@ -1,6 +1,6 @@
 <?php
 
-namespace Mnabialek\LaravelSqlLogger\Tests;
+namespace Ttakahashi2013\LaravelSqlLogger\Tests;
 
 use Carbon\Carbon;
 use Mockery;

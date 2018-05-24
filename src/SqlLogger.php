@@ -1,6 +1,6 @@
 <?php
 
-namespace Mnabialek\LaravelSqlLogger;
+namespace Ttakahashi2013\LaravelSqlLogger;
 
 use Exception;
 use Illuminate\Container\Container;

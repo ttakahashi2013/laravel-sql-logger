@@ -26,7 +26,7 @@ Using this package is free of charge, however to keep it up-to-date and add new 
 2. If you use Laravel < 5.5 open `config/app.php` and in `providers` section add:
  
     ```php
-    Mnabialek\LaravelSqlLogger\Providers\ServiceProvider::class,
+    Ttakahashi2013\LaravelSqlLogger\Providers\ServiceProvider::class,
     ```
     
     Laravel 5.5 uses Package Auto-Discovery and it will automatically load this service provider so you don't need to add anything into above file.
@@ -34,13 +34,13 @@ Using this package is free of charge, however to keep it up-to-date and add new 
     If you are using Lumen open `bootstrap/app.php` and add:
     
    ```php
-   $app->register(Mnabialek\LaravelSqlLogger\Providers\ServiceProvider::class);
+   $app->register(Ttakahashi2013\LaravelSqlLogger\Providers\ServiceProvider::class);
    ```
     
 3. If you use Laravel < 5.5 run:
     
     ```php
-    php artisan vendor:publish --provider="Mnabialek\LaravelSqlLogger\Providers\ServiceProvider"
+    php artisan vendor:publish --provider="Ttakahashi2013\LaravelSqlLogger\Providers\ServiceProvider"
     ```
     
     in your console to publish default configuration files.
@@ -51,7 +51,7 @@ Using this package is free of charge, however to keep it up-to-date and add new 
     php artisan vendor:publish
     ```
     
-    and choose the number matching `"Mnabialek\LaravelSqlLogger\Providers\ServiceProvider"` provider.
+    and choose the number matching `"Ttakahashi2013\LaravelSqlLogger\Providers\ServiceProvider"` provider.
     
     By default you should not edit published file because all the settings are loaded from `.env` file by default.
     

@@ -1,8 +1,8 @@
 <?php
 
-namespace Mnabialek\LaravelSqlLogger;
+namespace Ttakahashi2013\LaravelSqlLogger;
 
-use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
+use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
 use App\Libs\SlackNotification;
 use App\Libs\Util;
 

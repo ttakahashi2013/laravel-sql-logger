@@ -1,11 +1,11 @@
 <?php
 
-namespace Mnabialek\LaravelSqlLogger\Tests;
+namespace Ttakahashi2013\LaravelSqlLogger\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Container\Container;
-use Mnabialek\LaravelSqlLogger\Config;
-use Mnabialek\LaravelSqlLogger\FileName;
+use Ttakahashi2013\LaravelSqlLogger\Config;
+use Ttakahashi2013\LaravelSqlLogger\FileName;
 use Mockery;
 
 class FileNameTest extends UnitTestCase

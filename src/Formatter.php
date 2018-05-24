@@ -1,11 +1,11 @@
 <?php
 
-namespace Mnabialek\LaravelSqlLogger;
+namespace Ttakahashi2013\LaravelSqlLogger;
 
 use Carbon\Carbon;
 use Illuminate\Container\Container;
-use Mnabialek\LaravelSqlLogger\Objects\Concerns\ReplacesBindings;
-use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
+use Ttakahashi2013\LaravelSqlLogger\Objects\Concerns\ReplacesBindings;
+use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
 
 class Formatter
 {
