@@ -40,8 +40,8 @@
             ]
         },
         "thanks": {
-            "name": "mnabialek/laravel-version",
-            "url": "https://github.com/mnabialek/laravel-version"
+            "name": "ttakahashi2013/laravel-version",
+            "url": "https://github.com/ttakahashi2013/laravel-version"
         },
         "suggest": {
             "symfony/thanks": "Star packages you use running 'composer thanks' command"

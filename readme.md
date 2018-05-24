@@ -1,10 +1,10 @@
 ## Laravel SQL Logger
 
-[![Packagist](https://img.shields.io/packagist/dt/mnabialek/laravel-sql-logger.svg)](https://packagist.org/packages/mnabialek/laravel-sql-logger)
-[![Support via Paypal](https://img.shields.io/badge/support%20via-paypal-brightgreen.svg)](https://www.paypal.me/mnabialek/5usd)
-[![Build Status](https://travis-ci.org/mnabialek/laravel-sql-logger.svg?branch=master)](https://travis-ci.org/mnabialek/laravel-sql-logger)
-[![Coverage Status](https://coveralls.io/repos/github/mnabialek/laravel-sql-logger/badge.svg)](https://coveralls.io/github/mnabialek/laravel-sql-logger)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mnabialek/laravel-sql-logger/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mnabialek/laravel-sql-logger/)
+[![Packagist](https://img.shields.io/packagist/dt/ttakahashi2013/laravel-sql-logger.svg)](https://packagist.org/packages/ttakahashi2013/laravel-sql-logger)
+[![Support via Paypal](https://img.shields.io/badge/support%20via-paypal-brightgreen.svg)](https://www.paypal.me/ttakahashi2013/5usd)
+[![Build Status](https://travis-ci.org/ttakahashi2013/laravel-sql-logger.svg?branch=master)](https://travis-ci.org/ttakahashi2013/laravel-sql-logger)
+[![Coverage Status](https://coveralls.io/repos/github/ttakahashi2013/laravel-sql-logger/badge.svg)](https://coveralls.io/github/ttakahashi2013/laravel-sql-logger)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ttakahashi2013/laravel-sql-logger/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ttakahashi2013/laravel-sql-logger/)
 
 
 This module allows you to log SQL queries (and slow SQL queries) to log file in Laravel/Lumen framework. It's useful mainly
@@ -13,13 +13,13 @@ when developing your application to verify whether your queries are valid and to
 ### Support
 
 Using this package is free of charge, however to keep it up-to-date and add new features small money support is appreciated. **Suggested amount is 5$ per project where you use this package but any amount will help further development of this package.**
-[![Support via Paypal](https://img.shields.io/badge/support%20via-paypal-brightgreen.svg)](https://www.paypal.me/mnabialek/5usd) (you are free to change amount on Paypal page)
+[![Support via Paypal](https://img.shields.io/badge/support%20via-paypal-brightgreen.svg)](https://www.paypal.me/ttakahashi2013/5usd) (you are free to change amount on Paypal page)
 
 ### Installation
 
 1. Run
    ```php   
-   composer require mnabialek/laravel-sql-logger --dev
+   composer require ttakahashi2013/laravel-sql-logger --dev
    ```
    in console to install this module (Notice `--dev` flag - it's recommended to use this package only for development). 
 
