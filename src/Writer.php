@@ -3,6 +3,8 @@
 namespace Mnabialek\LaravelSqlLogger;
 
 use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
+use App\Libs\SlackNotification;
+use App\Libs\Util;
 
 class Writer
 {
@@ -99,6 +101,14 @@ class Writer
      */
     protected function shouldLogSlowQuery(SqlQuery $query)
     {
+        //テストコード
+        $record['level_name'] = 'slow guery';
+        $record['level_name'] = 'テストです';
+        $record['message'] = 'スロークエリ';
+        $record['context'] = 'context';
+        $record['extra'] = 'extra';
+        $isAnnounce = true;
+        $this->toSlack($record, $isAnnounce);
         return $this->config->logSlowQueries() && $query->time() >= $this->config->slowLogTime() &&
             preg_match($this->config->slowQueriesPattern(), $query->raw());
     }
@@ -110,7 +120,7 @@ class Writer
      * @param string $fileName
      * @param bool $override
      */
-    protected function saveLine($line, $fileName, $override = false)
+    protected function laravel-sql-logger($line, $fileName, $override = false)
     {
         file_put_contents($this->directory() . DIRECTORY_SEPARATOR . $fileName,
             $line, $override ? 0 : FILE_APPEND);
@@ -126,5 +136,21 @@ class Writer
     private function shouldOverrideFile(SqlQuery $query)
     {
         return ($query->number() == 1 && $this->config->overrideFile());
+    }
+
+    private function toSlack($record, $isAnnounce)
+    {
+        // slackで見やすいように文字数を補正する
+        if (isset($record['context']['gitHash'])) {
+            $record['context']['gitHash']
+                = substr($record['context']['gitHash'], 0, self::GIT_HASH_LENGTH);
+        }
+
+        $notification = (new SlackNotification())
+            ->setLevel($record['level_name'])
+            ->setIsAnnounced($isAnnounce)
+            ->setAttachmentTitle($record['message'])
+            ->setFields(array_merge($record['context'], $record['extra']));
+        Util::toSlack($notification);
     }
 }
