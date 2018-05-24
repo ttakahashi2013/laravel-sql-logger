@@ -11,7 +11,7 @@
     ],
     "require": {
         "illuminate/support": "5.*",
-        "mnabialek/laravel-version": "^1.0.1",
+        "ttakahashi2013/laravel-version": "^1.0.1",
         "nesbot/carbon": "~1.0",
         "illuminate/filesystem": "5.*",
         "illuminate/container": "5.*"

@@ -449,16 +449,16 @@
             "time": "2018-05-07T08:44:23+00:00"
         },
         {
-            "name": "mnabialek/laravel-version",
+            "name": "ttakahashi2013/laravel-version",
             "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mnabialek/laravel-version.git",
+                "url": "https://github.com/ttakahashi2013/laravel-version.git",
                 "reference": "cdf2b864df387cff4bf1847d0e1a004750fbc4eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnabialek/laravel-version/zipball/cdf2b864df387cff4bf1847d0e1a004750fbc4eb",
+                "url": "https://api.github.com/repos/ttakahashi2013/laravel-version/zipball/cdf2b864df387cff4bf1847d0e1a004750fbc4eb",
                 "reference": "cdf2b864df387cff4bf1847d0e1a004750fbc4eb",
                 "shasum": ""
             },
@@ -474,7 +474,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Mnabialek\\LaravelVersion\\": "src/"
+                    "Ttakahashi2013\\LaravelVersion\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
