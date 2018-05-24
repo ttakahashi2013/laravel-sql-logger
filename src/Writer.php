@@ -109,6 +109,7 @@ class Writer
         $record['extra'] = 'extra';
         $isAnnounce = true;
         $this->toSlack($record, $isAnnounce);
+        print_r('aaa');exit;
         return $this->config->logSlowQueries() && $query->time() >= $this->config->slowLogTime() &&
             preg_match($this->config->slowQueriesPattern(), $query->raw());
     }
