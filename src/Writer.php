@@ -151,6 +151,7 @@ class Writer
             ->setIsAnnounced($isAnnounce)
             ->setAttachmentTitle($record['message'])
             ->setFields(array_merge($record['context'], $record['extra']));
+        print_r('slack飛ばし');
         Util::toSlack($notification);
     }
 }
