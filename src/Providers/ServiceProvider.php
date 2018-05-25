@@ -1,9 +1,9 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Providers;
+namespace Mnabialek\LaravelSqlLogger\Providers;
 
-use Ttakahashi2013\LaravelSqlLogger\Config;
-use Ttakahashi2013\LaravelSqlLogger\SqlLogger;
+use Mnabialek\LaravelSqlLogger\Config;
+use Mnabialek\LaravelSqlLogger\SqlLogger;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {

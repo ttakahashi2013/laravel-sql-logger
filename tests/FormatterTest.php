@@ -1,14 +1,14 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Tests;
+namespace Mnabialek\LaravelSqlLogger\Tests;
 
 use ArrayAccess;
 use Carbon\Carbon;
 use Illuminate\Container\Container;
 use Illuminate\Http\Request;
-use Ttakahashi2013\LaravelSqlLogger\Config;
-use Ttakahashi2013\LaravelSqlLogger\Formatter;
-use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
+use Mnabialek\LaravelSqlLogger\Config;
+use Mnabialek\LaravelSqlLogger\Formatter;
+use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
 use Mockery;
 
 class FormatterTest extends UnitTestCase

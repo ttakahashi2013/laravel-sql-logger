@@ -1,8 +1,8 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Objects;
+namespace Mnabialek\LaravelSqlLogger\Objects;
 
-use Ttakahashi2013\LaravelSqlLogger\Objects\Concerns\ReplacesBindings;
+use Mnabialek\LaravelSqlLogger\Objects\Concerns\ReplacesBindings;
 
 class SqlQuery
 {

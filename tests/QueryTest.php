@@ -1,10 +1,10 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Tests;
+namespace Mnabialek\LaravelSqlLogger\Tests;
 
-use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
-use Ttakahashi2013\LaravelSqlLogger\Query;
-use Ttakahashi2013\LaravelVersion\Version;
+use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
+use Mnabialek\LaravelSqlLogger\Query;
+use Mnabialek\LaravelVersion\Version;
 use Mockery;
 use stdClass;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Tests;
+namespace Mnabialek\LaravelSqlLogger\Tests;
 
 use ArrayAccess;
 use Illuminate\Container\Container;
-use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
-use Ttakahashi2013\LaravelSqlLogger\Query;
-use Ttakahashi2013\LaravelSqlLogger\SqlLogger;
-use Ttakahashi2013\LaravelSqlLogger\Writer;
+use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
+use Mnabialek\LaravelSqlLogger\Query;
+use Mnabialek\LaravelSqlLogger\SqlLogger;
+use Mnabialek\LaravelSqlLogger\Writer;
 use Mockery;
 use stdClass;
 

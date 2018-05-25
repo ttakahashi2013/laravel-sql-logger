@@ -1,9 +1,9 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Tests;
+namespace Mnabialek\LaravelSqlLogger\Tests;
 
 use Illuminate\Contracts\Config\Repository;
-use Ttakahashi2013\LaravelSqlLogger\Config;
+use Mnabialek\LaravelSqlLogger\Config;
 use Mockery;
 
 class ConfigTest extends UnitTestCase

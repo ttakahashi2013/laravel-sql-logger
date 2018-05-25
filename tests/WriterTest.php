@@ -1,14 +1,14 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger\Tests;
+namespace Mnabialek\LaravelSqlLogger\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Filesystem\Filesystem;
-use Ttakahashi2013\LaravelSqlLogger\Config;
-use Ttakahashi2013\LaravelSqlLogger\FileName;
-use Ttakahashi2013\LaravelSqlLogger\Formatter;
-use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
-use Ttakahashi2013\LaravelSqlLogger\Writer;
+use Mnabialek\LaravelSqlLogger\Config;
+use Mnabialek\LaravelSqlLogger\FileName;
+use Mnabialek\LaravelSqlLogger\Formatter;
+use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
+use Mnabialek\LaravelSqlLogger\Writer;
 use Mockery;
 
 class WriterTest extends UnitTestCase
