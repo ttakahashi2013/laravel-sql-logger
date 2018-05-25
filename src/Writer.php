@@ -56,12 +56,12 @@ class Writer
 
         $line = $this->formatter->getLine($query);
         $context = $this->formatter->getSlackRecord($query);
-        $this->toSlack($context);
         if ($this->shouldLogQuery($query)) {
             $this->saveLine($line, $this->fileName->getForAllQueries(), $this->shouldOverrideFile($query));
         }
 
         if ($this->shouldLogSlowQuery($query)) {
+            $this->toSlack($context);
             $this->saveLine($line, $this->fileName->getForSlowQueries());
         }
     }
@@ -141,7 +141,6 @@ class Writer
 
     private function toSlack($context)
     {
-        // slackで見やすいように文字数を補正する
         $record['context'] = $context;
         $record['extra'] = [];
 
