@@ -29,6 +29,8 @@ class Writer
      */
     private $fileName;
 
+    const SLOW_QUERY_SLACK_TITLE = 'スロークエリー';
+
     /**
      * Writer constructor.
      *
@@ -54,13 +56,12 @@ class Writer
 
         $line = $this->formatter->getLine($query);
         $context = $this->formatter->getSlackRecord($query);
-$this->toSlack($context);
+        $this->toSlack($context);
         if ($this->shouldLogQuery($query)) {
             $this->saveLine($line, $this->fileName->getForAllQueries(), $this->shouldOverrideFile($query));
         }
 
         if ($this->shouldLogSlowQuery($query)) {
-
             $this->saveLine($line, $this->fileName->getForSlowQueries());
         }
     }
@@ -141,11 +142,8 @@ $this->toSlack($context);
     private function toSlack($context)
     {
         // slackで見やすいように文字数を補正する
-        $record['level_name'] = SlackNotification::ERROR;
-        $record['message'] = 'スロークエリ';
         $record['context'] = $context;
         $record['extra'] = [];
-        $isAnnounce = true;
 
         if (isset($record['context']['gitHash'])) {
             $record['context']['gitHash']
@@ -155,7 +153,7 @@ $this->toSlack($context);
         $notification = (new SlackNotification())
             ->setLevel(SlackNotification::ERROR)
             ->setIsAnnounced(false)
-            ->setAttachmentTitle($record['message'])
+            ->setAttachmentTitle(self::SLOW_QUERY_SLACK_TITLE)
             ->setFields(array_merge($record['context'], $record['extra']));
         if (!empty($notification->routeNotificationForSlack())) {
             $notification->notify(new SlackPosted);
