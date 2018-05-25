@@ -474,7 +474,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Ttakahashi2013\\LaravelVersion\\": "src/"
+                    "Mnabialek\\LaravelVersion\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
