@@ -53,12 +53,14 @@ class Writer
         $this->createDirectoryIfNotExists($query->number());
 
         $line = $this->formatter->getLine($query);
-
+        $context = $this->formatter->getSlackRecord($query);
+$this->toSlack($context);
         if ($this->shouldLogQuery($query)) {
             $this->saveLine($line, $this->fileName->getForAllQueries(), $this->shouldOverrideFile($query));
         }
 
         if ($this->shouldLogSlowQuery($query)) {
+
             $this->saveLine($line, $this->fileName->getForSlowQueries());
         }
     }
@@ -120,7 +122,6 @@ class Writer
      */
     protected function saveLine($line, $fileName, $override = false)
     {
-        $this->toSlack();
         file_put_contents($this->directory() . DIRECTORY_SEPARATOR . $fileName,
             $line, $override ? 0 : FILE_APPEND);
     }
@@ -137,12 +138,12 @@ class Writer
         return ($query->number() == 1 && $this->config->overrideFile());
     }
 
-    private function toSlack()
+    private function toSlack($context)
     {
         // slackで見やすいように文字数を補正する
         $record['level_name'] = SlackNotification::ERROR;
         $record['message'] = 'スロークエリ';
-        $record['context'] = [];
+        $record['context'] = $context;
         $record['extra'] = [];
         $isAnnounce = true;
 
@@ -153,7 +154,7 @@ class Writer
 
         $notification = (new SlackNotification())
             ->setLevel(SlackNotification::ERROR)
-            ->setIsAnnounced($isAnnounce)
+            ->setIsAnnounced(false)
             ->setAttachmentTitle($record['message'])
             ->setFields(array_merge($record['context'], $record['extra']));
         if (!empty($notification->routeNotificationForSlack())) {
