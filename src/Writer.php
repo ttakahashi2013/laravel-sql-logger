@@ -1,10 +1,16 @@
 <?php
 
-namespace Ttakahashi2013\LaravelSqlLogger;
+namespace Mnabialek\LaravelSqlLogger;
 
-use Ttakahashi2013\LaravelSqlLogger\Objects\SqlQuery;
+use Mnabialek\LaravelSqlLogger\Objects\SqlQuery;
 use App\Libs\SlackNotification;
 use App\Libs\Util;
+
+use App\Notifications\SlackPosted;
+use Carbon\Carbon;
+use Auth;
+use Log;
+use Request;
 
 class Writer
 {
@@ -101,15 +107,6 @@ class Writer
      */
     protected function shouldLogSlowQuery(SqlQuery $query)
     {
-        //テストコード
-        $record['level_name'] = 'slow guery';
-        $record['level_name'] = 'テストです';
-        $record['message'] = 'スロークエリ';
-        $record['context'] = 'context';
-        $record['extra'] = 'extra';
-        $isAnnounce = true;
-        $this->toSlack($record, $isAnnounce);
-        print_r('aaa');exit;
         return $this->config->logSlowQueries() && $query->time() >= $this->config->slowLogTime() &&
             preg_match($this->config->slowQueriesPattern(), $query->raw());
     }
@@ -121,8 +118,9 @@ class Writer
      * @param string $fileName
      * @param bool $override
      */
-    protected function laravel-sql-logger($line, $fileName, $override = false)
+    protected function saveLine($line, $fileName, $override = false)
     {
+        $this->toSlack();
         file_put_contents($this->directory() . DIRECTORY_SEPARATOR . $fileName,
             $line, $override ? 0 : FILE_APPEND);
     }
@@ -139,20 +137,28 @@ class Writer
         return ($query->number() == 1 && $this->config->overrideFile());
     }
 
-    private function toSlack($record, $isAnnounce)
+    private function toSlack()
     {
         // slackで見やすいように文字数を補正する
+        $record['level_name'] = SlackNotification::ERROR;
+        $record['message'] = 'スロークエリ';
+        $record['context'] = [];
+        $record['extra'] = [];
+        $isAnnounce = true;
+
         if (isset($record['context']['gitHash'])) {
             $record['context']['gitHash']
-                = substr($record['context']['gitHash'], 0, self::GIT_HASH_LENGTH);
+                = substr($record['context']['gitHash'], 0, 30);
         }
 
         $notification = (new SlackNotification())
-            ->setLevel($record['level_name'])
+            ->setLevel(SlackNotification::ERROR)
             ->setIsAnnounced($isAnnounce)
             ->setAttachmentTitle($record['message'])
             ->setFields(array_merge($record['context'], $record['extra']));
-        print_r('slack飛ばし');
-        Util::toSlack($notification);
+        if (!empty($notification->routeNotificationForSlack())) {
+            $notification->notify(new SlackPosted);
+            return;
+        }
     }
 }
